@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Pro - Automated AI Creator Network (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#05050a',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #05050a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .glow-gold { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #00f0ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[480px] h-screen max-h-[950px] bg-panelbg border-2 border-cyanel glow-cyan flex flex-col relative rounded-2xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-3 py-2 bg-cyberdark border-b border-cyanel/30 flex items-center justify-between gap-2 z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchView('homeView')">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-hotpink to-cyanel p-0.5 animate-pulse flex items-center justify-center font-bold text-black text-xs">AI</div>
+                <div class="brand-title text-xs font-black text-neongreen tracking-wider">MStram AI Syndication</div>
+            </div>
+
+            <!-- Right Action Icons -->
+            <div class="flex items-center gap-2">
+                <button class="text-cyanel text-xs font-bold px-2 py-1 bg-cyanel/10 border border-cyanel/40 rounded-lg" onclick="openModal('linkModal')">🔗 Link YouTube</button>
+                <button class="text-vipgold font-bold text-[9px] px-1.5 py-1 border border-vipgold rounded-md glow-gold" onclick="openModal('payoutModal')">25th Payout</button>
+            </div>
+        </header>
+
+        <!-- Main Content View Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col">
+
+            <!-- VIEW 1: HOME & SYNDICATION DASHBOARD -->
+            <div id="homeView" class="view-section flex flex-col p-3 gap-3">
+                <div class="p-3 rounded-xl bg-gradient-to-r from-purple-950 to-cyan-950 border border-cyanel/50 flex flex-col gap-2">
+                    <h4 class="text-xs font-bold text-cyanel">🤖 Autonomous AI Revenue Engine Active</h4>
+                    <p class="text-[10px] text-gray-300">Creator Share: <b>5%</b> | Platform Share (Sajeel): <b>45%</b> | AI Treasury & Ads: <b>50%</b></p>
+                    <div class="flex justify-between items-center bg-black/40 p-2 rounded-lg text-[11px]">
+                        <span>Linked YouTube Channels: <b id="linkedCount" class="text-neongreen">1</b></span>
+                        <span class="text-vipgold">Auto-Promo Active</span>
+                    </div>
+                </div>
+
+                <!-- Live Shorts Feed Simulation with Promo Link -->
+                <div class="bg-cyberdark border border-cyanel/30 rounded-xl overflow-hidden p-3 flex flex-col gap-2">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span>⚡ Live Syndicated Short</span>
+                        <span class="text-hotpink text-[10px]">Ad-Monetized</span>
+                    </div>
+                    <div class="relative h-44 w-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button onclick="alert('Playing short video & running automated ad split (45% Platform / 5% Creator)!')" class="w-10 h-10 bg-cyanel text-black font-bold rounded-full flex items-center justify-center text-sm">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-1 text-[11px]">
+                        <p class="font-bold">@SajeelYT • Prehistoric Species Fact #1</p>
+                        <p class="text-gray-400 text-[10px] mt-1 bg-white/5 p-1.5 rounded border border-white/10">
+                            💬 AI Auto-Description: <i>"Want real earnings from shorts? Join our platform: <span class="text-cyanel">mstram.pro</span>"</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-14 bg-cyberdark border-t border-cyanel/30 flex justify-around items-center px-2 flex-shrink-0 z-20">
+            <a onclick="switchView('homeView')" class="nav-item flex flex-col items-center text-cyanel cursor-pointer text-[10px]">🏠 Feed</a>
+            <a onclick="openModal('linkModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">🔗 Sync YT</a>
+            <a onclick="openModal('payoutModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">💰 Wallet</a>
+        </nav>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- YouTube Account Link Modal -->
+    <div id="linkModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-cyanel w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-cyanel">🔗 Link YouTube Channel</h3>
+                <button onclick="closeModal('linkModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">AI will auto-sync your shorts and inject platform promotion links in your descriptions.</p>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">YouTube Channel URL or Handle</label>
+                <input type="text" id="ytHandle" placeholder="@YourChannelName" class="p-2 bg-black/40 border border-cyanel/40 rounded-lg text-white">
+            </div>
+            <button onclick="linkYouTubeAccount()" class="py-2 bg-cyanel text-black font-bold rounded-xl text-xs mt-1">Connect & Auto-Sync</button>
+        </div>
+    </div>
+
+    <!-- Payout Modal (JazzCash / EasyPaisa) -->
+    <div id="payoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-neongreen w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-neongreen">💳 25th Payday Automated Payout</h3>
+                <button onclick="closeModal('payoutModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <div class="flex justify-between items-center bg-black/40 p-2.5 rounded-lg text-xs">
+                <span>Platform Earnings (45%):</span>
+                <span class="text-neongreen font-bold">$450.00 (PKR 125,000)</span>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Select Wallet</label>
+                <select class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white">
+                    <option>JazzCash</option>
+                    <option>EasyPaisa</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Mobile Number</label>
+                <input type="text" placeholder="03XXXXXXXXX" class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white">
+            </div>
+            <button onclick="alert('Payout details locked! Automated transfer will execute on the 25th of this month.'); closeModal('payoutModal');" class="py-2 bg-neongreen text-black font-bold rounded-xl text-xs mt-1">Save for 25th Payout</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function switchView(viewId) {
+            // View switcher logic
+        }
+
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+
+        function linkYouTubeAccount() {
+            let handle = document.getElementById('ytHandle').value;
+            if(handle.length > 2) {
+                alert('✅ Success! ' + handle + ' is now linked. AI has started syncing shorts and injecting promo links automatically.');
+                document.getElementById('linkedCount').innerText = '2';
+                closeModal('linkModal');
+            } else {
+                alert('Please enter a valid channel handle.');
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - Chief Owner Master Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#05050a',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #05050a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .glow-gold { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #00f0ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[480px] h-screen max-h-[950px] bg-panelbg border-2 border-vipgold glow-gold flex flex-col relative rounded-2xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation with Search -->
+        <header class="app-header px-3 py-2 bg-cyberdark border-b border-vipgold/30 flex items-center justify-between gap-2 z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-1.5 cursor-pointer">
+                <div class="w-7 h-7 rounded-lg bg-vipgold text-black flex items-center justify-center font-black text-xs">👑</div>
+                <div class="brand-title text-[11px] font-black text-vipgold tracking-wider">MStram Chief HQ</div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 flex bg-white/5 border border-vipgold/40 rounded-full px-2.5 py-1 items-center">
+                <input type="text" placeholder="Search creators, shorts, ledger..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Owner Action Icons -->
+            <div class="flex items-center gap-1">
+                <button class="text-black font-bold text-[9px] px-1.5 py-1 bg-vipgold rounded-md" onclick="openModal('ownerLedgerModal')">Ledger</button>
+                <button class="text-cyanel text-xs" onclick="openModal('linkModal')">🔗</button>
+            </div>
+        </header>
+
+        <!-- Main Content View Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-3 gap-3">
+
+            <!-- 1. CHIEF OWNER REVENUE & START-TO-END LEDGER CARD (Topmost) -->
+            <div class="p-3.5 rounded-xl bg-gradient-to-r from-yellow-950 via-purple-950 to-cyan-950 border border-vipgold flex flex-col gap-2 glow-gold">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xs font-bold text-vipgold">👑 Chief Owner Dashboard (Sajeel)</h4>
+                    <span class="text-[9px] bg-neongreen text-black font-bold px-1.5 py-0.5 rounded">AI Active</span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <p class="text-[10px] text-gray-300">Total Revenue (Start to End Ledger):</p>
+                        <h2 class="text-base font-black text-neongreen">$24,900.00 <span class="text-[10px] text-white font-normal">(PKR 6,900,000)</span></h2>
+                    </div>
+                    <button onclick="openModal('ownerLedgerModal')" class="px-2.5 py-1.5 bg-neongreen text-black font-bold rounded-lg text-[10px]">View Full Ledger</button>
+                </div>
+            </div>
+
+            <!-- 2. THE 5 TARKARI HIGH-INCOME BIZ ENGINES (Visible Front & Center) -->
+            <div class="bg-cyberdark border border-cyanel/30 rounded-xl p-3 flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">⚡ Top 5 High-Income Business Engines (Active)</h4>
+                <div class="grid grid-cols-1 gap-1.5 text-[10px]">
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>1. AI Shorts Syndication (45% Chief Cut)</span>
+                        <span class="text-neongreen font-bold">Live</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>2. Automated Brand Takeover & Banners</span>
+                        <span class="text-neongreen font-bold">Live</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>3. Creator Hype Boost Auctions</span>
+                        <span class="text-neongreen font-bold">Live</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>4. Direct Affiliate Gear Commission</span>
+                        <span class="text-neongreen font-bold">Live</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>5. Esports Tournament Fee Pools</span>
+                        <span class="text-neongreen font-bold">Live</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. POSTS FEED (As requested: Posts right below dashboard) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-gray-400">📢 Community & Creator Posts</h4>
+                
+                <!-- Post Item 1 -->
+                <div class="bg-cyberdark border border-cyanel/20 rounded-xl p-3 flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-hotpink flex items-center justify-center font-bold text-xs">SJ</div>
+                        <div>
+                            <p class="text-xs font-bold">Sajeel Chief HQ</p>
+                            <p class="text-[9px] text-gray-400">2 hours ago • Autonomous AI Update</p>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-200">Welcome to MStram Sovereign Prime! All creators linked via one-time code are now auto-syncing shorts. 45% revenue is routing directly to the Chief Ledger.</p>
+                </div>
+            </div>
+
+            <!-- 4. SHORTS POSTS / VIDEOS FEED (Right below posts) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">⚡ Live Shorts Feed (Auto-Synced)</h4>
+
+                <!-- Short Card 1 -->
+                <div class="bg-cyberdark border border-cyanel/30 rounded-xl overflow-hidden p-3 flex flex-col gap-2">
+                    <div class="relative h-40 w-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button onclick="alert('Playing short! Ad impression tracked, 45% routed to Chief Vault.')" class="w-10 h-10 bg-cyanel text-black font-bold rounded-full flex items-center justify-center text-sm">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-1 text-[11px]">
+                        <p class="font-bold">@CreatorMaster • Prehistoric Fact Short</p>
+                        <p class="text-gray-400 text-[10px] mt-1 bg-white/5 p-1.5 rounded border border-white/10">
+                            💬 AI Auto-Promo: <i>"Want guaranteed earnings? Join platform: <span class="text-cyanel">mstram-prime.pro</span>"</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-14 bg-cyberdark border-t border-vipgold/30 flex justify-around items-center px-2 flex-shrink-0 z-20">
+            <a onclick="openModal('ownerLedgerModal')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px]">👑 Chief Vault</a>
+            <a onclick="openModal('linkModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">🔗 One-Time Link</a>
+            <a onclick="openModal('payoutModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">💰 Payouts</a>
+        </nav>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- Start-to-End Accounting Ledger Modal (Chief's Full Record) -->
+    <div id="ownerLedgerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-vipgold w-full max-w-[400px] max-h-[85vh] rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto glow-gold">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-vipgold">📊 Start-to-End Chief Ledger (AI Audit)</h3>
+                <button onclick="closeModal('ownerLedgerModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">Complete automated financial record from day one to present for Chief Sajeel.</p>
+            <div class="flex flex-col gap-2 text-[11px]">
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>Total Shorts Ad Views:</span>
+                    <span class="text-cyanel font-bold">1,450,200</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>Gross Platform Revenue:</span>
+                    <span class="text-white font-bold">$55,333.00</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between border border-vipgold/40">
+                    <span class="text-vipgold font-bold">Chief 45% Share (Your Cut):</span>
+                    <span class="text-neongreen font-bold">$24,900.00</span>
+                </div>
+            </div>
+            <button onclick="alert('Ledger exported & synced with JazzCash/EasyPaisa payout bridge!')" class="py-2.5 bg-vipgold text-black font-bold rounded-xl text-xs mt-1">Request Payout to JazzCash</button>
+        </div>
+    </div>
+
+    <!-- One-Time YouTube Link Modal -->
+    <div id="linkModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-cyanel w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-cyanel">🔗 One-Time Creator Channel Link</h3>
+                <button onclick="closeModal('linkModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">Creators only need to link their YouTube handle <b>once</b>. AI will auto-sync every future short forever and route 45% revenue to the Chief.</p>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">YouTube Handle (@Channel)</label>
+                <input type="text" placeholder="@ChannelName" class="p-2 bg-black/40 border border-cyanel/40 rounded-lg text-white">
+            </div>
+            <button onclick="alert('One-time link saved! Permanent AI auto-sync & revenue routing activated.'); closeModal('linkModal');" class="py-2 bg-cyanel text-black font-bold rounded-xl text-xs mt-1">Save & Permanent Sync</button>
+        </div>
+    </div>
+
+    <!-- Payout Modal -->
+    <div id="payoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-neongreen w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-neongreen">💳 25th Chief Payout Bridge</h3>
+                <button onclick="closeModal('payoutModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Select Wallet (JazzCash / EasyPaisa)</label>
+                <select class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white">
+                    <option>JazzCash (Chief Sajeel)</option>
+                    <option>EasyPaisa (Chief Sajeel)</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Mobile Number</label>
+                <input type="text" placeholder="03XXXXXXXXX" class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white" value="03XXXXXXXXX">
+            </div>
+            <button onclick="alert('Chief payout configuration saved successfully! Funds will dispatch on the 25th.'); closeModal('payoutModal');" class="py-2 bg-neongreen text-black font-bold rounded-xl text-xs mt-1">Confirm Chief Payout</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - Secure Chief Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#05050a',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #05050a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .glow-gold { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #00f0ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[480px] h-screen max-h-[950px] bg-panelbg border-2 border-vipgold glow-gold flex flex-col relative rounded-2xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation with Search -->
+        <header class="app-header px-3 py-2 bg-cyberdark border-b border-vipgold/30 flex items-center justify-between gap-2 z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-1.5 cursor-pointer">
+                <div class="w-7 h-7 rounded-lg bg-vipgold text-black flex items-center justify-center font-black text-xs">🛡️</div>
+                <div class="brand-title text-[11px] font-black text-vipgold tracking-wider">MStram Secure HQ</div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 flex bg-white/5 border border-vipgold/40 rounded-full px-2.5 py-1 items-center">
+                <input type="text" placeholder="Search secure ledger, creators..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Owner Secure Action Icons -->
+            <div class="flex items-center gap-1">
+                <button class="text-black font-bold text-[9px] px-1.5 py-1 bg-vipgold rounded-md" onclick="openModal('ownerLedgerModal')">Vault</button>
+                <button class="text-cyanel text-xs" onclick="openModal('linkModal')">🔗</button>
+            </div>
+        </header>
+
+        <!-- Main Content View Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-3 gap-3">
+
+            <!-- 1. SECURE CHIEF OWNER REVENUE & EXPENSE SHIELD DASHBOARD -->
+            <div class="p-3.5 rounded-xl bg-gradient-to-r from-yellow-950 via-purple-950 to-cyan-950 border border-vipgold flex flex-col gap-2 glow-gold">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xs font-bold text-vipgold">👑 Chief Owner Secure Vault (Sajeel)</h4>
+                    <span class="text-[9px] bg-neongreen text-black font-bold px-1.5 py-0.5 rounded">Shield Active 🔒</span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <p class="text-[10px] text-gray-300">Net Profit (After Auto-Expenses):</p>
+                        <h2 class="text-base font-black text-neongreen">$32,450.00 <span class="text-[10px] text-white font-normal">(PKR 9,000,000)</span></h2>
+                    </div>
+                    <button onclick="openModal('ownerLedgerModal')" class="px-2.5 py-1.5 bg-neongreen text-black font-bold rounded-lg text-[10px]">Manage Vault</button>
+                </div>
+            </div>
+
+            <!-- 2. THE 5 ULTRA HIGH-INCOME BUSINESS ENGINES (Visible Front & Center) -->
+            <div class="bg-cyberdark border border-cyanel/30 rounded-xl p-3 flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">🚀 5 Ultra High-Income Engines (Max Power)</h4>
+                <div class="grid grid-cols-1 gap-1.5 text-[10px]">
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>1. AI Shorts Syndication (45% Chief Cut)</span>
+                        <span class="text-neongreen font-bold">Max Earning</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>2. Automated Brand Takeover & Flash Banners</span>
+                        <span class="text-neongreen font-bold">Max Earning</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>3. Creator Hype Boost Paid Auctions</span>
+                        <span class="text-neongreen font-bold">Max Earning</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>4. Direct Affiliate Gear Commission</span>
+                        <span class="text-neongreen font-bold">Max Earning</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>5. Esports Tournament Fee & Ad Pools</span>
+                        <span class="text-neongreen font-bold">Max Earning</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. POSTS FEED (Right below dashboard) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-gray-400">📢 Community & Creator Posts</h4>
+                <div class="bg-cyberdark border border-cyanel/20 rounded-xl p-3 flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-vipgold text-black flex items-center justify-center font-bold text-xs">SJ</div>
+                        <div>
+                            <p class="text-xs font-bold">Chief Sajeel HQ</p>
+                            <p class="text-[9px] text-gray-400">Secure Protocol Active • Karachi</p>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-200">All 5 income engines are running at maximum capacity with zero overhead cost. Expense shield is successfully routing net profits to our JazzCash vault!</p>
+                </div>
+            </div>
+
+            <!-- 4. SHORTS FEED (Right below posts) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">⚡ Live Syndicated Shorts Feed</h4>
+                <div class="bg-cyberdark border border-cyanel/30 rounded-xl overflow-hidden p-3 flex flex-col gap-2">
+                    <div class="relative h-40 w-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button onclick="alert('Playing short video! 45% ad profit secured instantly in Chief Vault.')" class="w-10 h-10 bg-cyanel text-black font-bold rounded-full flex items-center justify-center text-sm">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-1 text-[11px]">
+                        <p class="font-bold">@CreatorMaster • High-Income Short</p>
+                        <p class="text-gray-400 text-[10px] mt-1 bg-white/5 p-1.5 rounded border border-white/10">
+                            💬 AI Auto-Promo: <i>"Join platform and earn: <span class="text-cyanel">mstram-secure.pro</span>"</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-14 bg-cyberdark border-t border-vipgold/30 flex justify-around items-center px-2 flex-shrink-0 z-20">
+            <a onclick="openModal('ownerLedgerModal')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px]">👑 Secure Vault</a>
+            <a onclick="openModal('linkModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">🔗 One-Time Link</a>
+            <a onclick="openModal('payoutModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">💰 JazzCash Payout</a>
+        </nav>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- Secure Owner Ledger & Expense Shield Modal -->
+    <div id="ownerLedgerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-vipgold w-full max-w-[400px] max-h-[85vh] rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto glow-gold">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-vipgold">🛡️ Secure Chief Vault & Expense Shield</h3>
+                <button onclick="closeModal('ownerLedgerModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">AI Financial Shield automatically deducts operational expenses and secures net profit for Chief Sajeel.</p>
+            <div class="flex flex-col gap-2 text-[11px]">
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>Gross Revenue (All 5 Engines):</span>
+                    <span class="text-white font-bold">$35,000.00</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>Auto-Deducted Server Expenses:</span>
+                    <span class="text-hotpink font-bold">-$2,550.00</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between border border-vipgold/40">
+                    <span class="text-vipgold font-bold">Net Chief Profit (Your Final Cut):</span>
+                    <span class="text-neongreen font-bold">$32,450.00</span>
+                </div>
+            </div>
+            <button onclick="alert('Secure payout requested! Funds are transferring to your JazzCash account.')" class="py-2.5 bg-vipgold text-black font-bold rounded-xl text-xs mt-1">Withdraw Net Profit to JazzCash</button>
+        </div>
+    </div>
+
+    <!-- One-Time YouTube Link Modal -->
+    <div id="linkModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-cyanel w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-cyanel">🔗 One-Time Secure Channel Link</h3>
+                <button onclick="closeModal('linkModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">Creators link once. AI syncs forever while routing 45% revenue securely to the Chief.</p>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">YouTube Handle (@Channel)</label>
+                <input type="text" placeholder="@ChannelName" class="p-2 bg-black/40 border border-cyanel/40 rounded-lg text-white">
+            </div>
+            <button onclick="alert('Permanent secure link established!'); closeModal('linkModal');" class="py-2 bg-cyanel text-black font-bold rounded-xl text-xs mt-1">Establish Secure Link</button>
+        </div>
+    </div>
+
+    <!-- Payout Modal -->
+    <div id="payoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-neongreen w-full max-w-[380px] rounded-2xl p-4 flex flex-col gap-3">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-neongreen">💳 JazzCash / EasyPaisa Payout Bridge</h3>
+                <button onclick="closeModal('payoutModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Select Wallet Provider</label>
+                <select class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white">
+                    <option>JazzCash (Chief Sajeel)</option>
+                    <option>EasyPaisa (Chief Sajeel)</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-1 text-xs">
+                <label class="text-gray-400">Mobile Number</label>
+                <input type="text" placeholder="03XXXXXXXXX" class="p-2 bg-black/40 border border-neongreen/40 rounded-lg text-white" value="03XXXXXXXXX">
+            </div>
+            <button onclick="alert('Payout transfer command executed securely to your mobile wallet!'); closeModal('payoutModal');" class="py-2 bg-neongreen text-black font-bold rounded-xl text-xs mt-1">Confirm Secure Transfer</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function openModal(modalId) { document.getElementById(modalId).classList.remove('hidden'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - Chief Secure AI Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#05050a',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #05050a; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+        .glow-gold { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-thumb { background: #00f0ff; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[480px] h-screen max-h-[950px] bg-panelbg border-2 border-vipgold glow-gold flex flex-col relative rounded-2xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation with Search -->
+        <header class="app-header px-3 py-2 bg-cyberdark border-b border-vipgold/30 flex items-center justify-between gap-2 z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-1.5 cursor-pointer">
+                <div class="w-7 h-7 rounded-lg bg-vipgold text-black flex items-center justify-center font-black text-xs">🛡️</div>
+                <div class="brand-title text-[11px] font-black text-vipgold tracking-wider">MStram Secure AI HQ</div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 flex bg-white/5 border border-vipgold/40 rounded-full px-2.5 py-1 items-center">
+                <input type="text" placeholder="Search AI ledger, creators..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Owner Secure Action Icons -->
+            <div class="flex items-center gap-1">
+                <button class="text-black font-bold text-[9px] px-1.5 py-1 bg-vipgold rounded-md" onclick="openModal('ownerLedgerModal')">AI Vault</button>
+                <button class="text-cyanel text-xs" onclick="openModal('linkModal')">🔗</button>
+            </div>
+        </header>
+
+        <!-- Main Content View Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-3 gap-3">
+
+            <!-- 1. SECURE AI CHIEF OWNER REVENUE & EXPENSE SHIELD DASHBOARD -->
+            <div class="p-3.5 rounded-xl bg-gradient-to-r from-yellow-950 via-purple-950 to-cyan-950 border border-vipgold flex flex-col gap-2 glow-gold">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xs font-bold text-vipgold">👑 Chief Owner AI Vault (Sajeel)</h4>
+                    <span class="text-[9px] bg-neongreen text-black font-bold px-1.5 py-0.5 rounded">Smart AI Active 🔒</span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <div>
+                        <p class="text-[10px] text-gray-300">Net Chief Profit (Secure):</p>
+                        <h2 class="text-base font-black text-neongreen">$32,450.00 <span class="text-[10px] text-white font-normal">(PKR 9,000,000)</span></h2>
+                    </div>
+                    <button onclick="openModal('ownerLedgerModal')" class="px-2.5 py-1.5 bg-neongreen text-black font-bold rounded-lg text-[10px]">Audit Ledger</button>
+                </div>
+            </div>
+
+            <!-- 2. EXPANDABLE INCOME SLOTS (Ready for Ads, Tournaments & Future Features) -->
+            <div class="bg-cyberdark border border-cyanel/30 rounded-xl p-3 flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">⚡ 5 High-Income Engines (Slots Reserved & Ready)</h4>
+                <div class="grid grid-cols-1 gap-1.5 text-[10px]">
+                    <div class="p-2 bg-white/5 rounded-lg border border-white/10 flex justify-between items-center">
+                        <span>1. AI Shorts Syndication (45% Chief Cut)</span>
+                        <span class="text-neongreen font-bold">AI Auto-Sync</span>
+                    </div>
+                    <!-- Reserved Slots for Future Integration -->
+                    <div class="p-2 bg-white/5 rounded-dashed border border-cyanel/20 flex justify-between items-center text-gray-400">
+                        <span>2. Brand Takeover & Flash Banners</span>
+                        <span class="text-cyanel">[Ready to Plug]</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-dashed border border-cyanel/20 flex justify-between items-center text-gray-400">
+                        <span>3. Creator Hype Boost Auctions</span>
+                        <span class="text-cyanel">[Ready to Plug]</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-dashed border border-cyanel/20 flex justify-between items-center text-gray-400">
+                        <span>4. Direct Affiliate Gear Commission</span>
+                        <span class="text-cyanel">[Ready to Plug]</span>
+                    </div>
+                    <div class="p-2 bg-white/5 rounded-dashed border border-cyanel/20 flex justify-between items-center text-gray-400">
+                        <span>5. Esports Tournament Fee Pools</span>
+                        <span class="text-cyanel">[Ready to Plug]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. POSTS FEED (Right below dashboard) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-gray-400">📢 Community & Creator Posts</h4>
+                <div class="bg-cyberdark border border-cyanel/20 rounded-xl p-3 flex flex-col gap-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-7 h-7 rounded-full bg-vipgold text-black flex items-center justify-center font-bold text-xs">SJ</div>
+                        <div>
+                            <p class="text-xs font-bold">Chief Sajeel HQ</p>
+                            <p class="text-[9px] text-gray-400">Autonomous AI Core • Karachi</p>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-200">System security is locked with biometric cryptographic keys. Smart AI is managing all automated creator syndication and expense shielding seamlessly.</p>
+                </div>
+            </div>
+
+            <!-- 4. SHORTS FEED (Right below posts) -->
+            <div class="flex flex-col gap-2">
+                <h4 class="text-xs font-bold text-cyanel">⚡ Live Syndicated Shorts Feed</h4>
+                <div class="bg-cyberdark border border-cyanel/30 rounded-xl overflow-hidden p-3 flex flex-col gap-2">
+                    <div class="relative h-40 w-full bg-black rounded-lg overflow-hidden flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <button onclick="alert('AI Engine playing short! 45% revenue routed to Secure Chief Vault.')" class="w-10 h-10 bg-cyanel text-black font-bold rounded-full flex items-center justify-center text-sm">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-1 text-[11px]">
+                        <p class="font-bold">@CreatorMaster • AI Syndicated Short</p>
+                        <p class="text-gray-400 text-[10px] mt-1 bg-white/5 p-1.5 rounded border border-white/10">
+                            💬 AI Auto-Promo: <i>"Join platform and earn: <span class="text-cyanel">mstram-secure.pro</span>"</i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-14 bg-cyberdark border-t border-vipgold/30 flex justify-around items-center px-2 flex-shrink-0 z-20">
+            <a onclick="openModal('ownerLedgerModal')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px]">👑 AI Vault</a>
+            <a onclick="openModal('linkModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">🔗 One-Time Link</a>
+            <a onclick="openModal('payoutModal')" class="nav-item flex flex-col items-center text-gray-400 cursor-pointer text-[10px]">💰 JazzCash Payout</a>
+        </nav>
+    </div>
+
+    <!-- MODALS -->
+
+    <!-- Secure AI Ledger Modal -->
+    <div id="ownerLedgerModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex justify-center items-center p-4">
+        <div class="bg-panelbg border border-vipgold w-full max-w-[400px] max-h-[85vh] rounded-2xl p-4 flex flex-col gap-3 overflow-y-auto glow-gold">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-bold text-vipgold">🛡️ Secure AI Chief Vault & Ledger</h3>
+                <button onclick="closeModal('ownerLedgerModal')" class="text-red-500 font-bold text-sm">✕</button>
+            </div>
+            <p class="text-[10px] text-gray-300">Smart AI audits all start-to-end transactions and deducts expenses automatically.</p>
+            <div class="flex flex-col gap-2 text-[11px]">
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>Gross AI Revenue:</span>
+                    <span class="text-white font-bold">$35,000.00</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between">
+                    <span>AI-Managed Server Expenses:</span>
+                    <span class="text-hotpink font-bold">-$2,550.00</span>
+                </div>
+                <div class="p-2 bg-white/5 rounded-lg flex justify-between border border-vipgold/40">
+                    <span class="text-vipgold font-bold">Net Chief Profit
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - Chief Master Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#030307',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#0d1117',
+                        cardbg: '#161b22'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #030307; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 20px rgba(0, 240, 255, 0.25); }
+        .glow-gold { box-shadow: 0 0 25px rgba(255, 215, 0, 0.35); }
+        .glow-green { box-shadow: 0 0 20px rgba(0, 255, 102, 0.25); }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container (Ultra-Sleek Design) -->
+    <div class="app-container w-full max-w-[440px] h-screen sm:h-[900px] bg-panelbg border border-vipgold/40 glow-gold flex flex-col relative sm:rounded-3xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-4 py-3 bg-cyberdark/90 backdrop-blur-md border-b border-vipgold/20 flex items-center justify-between z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchPage('homePage')">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-amber-600 text-black flex items-center justify-center font-black text-xs shadow-lg">👑</div>
+                <div>
+                    <h1 class="text-[11px] font-black text-vipgold tracking-wider">MStram Sovereign</h1>
+                    <p class="text-[8px] text-neongreen font-mono">CHIEF SECURE v4.0</p>
+                </div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 mx-3 flex bg-black/40 border border-vipgold/30 rounded-full px-3 py-1.5 items-center">
+                <input type="text" placeholder="Search 10 categories..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Secure Vault Quick Button -->
+            <button onclick="requestThumbprintAuth('ledgerPage')" class="px-2.5 py-1.5 bg-vipgold/10 border border-vipgold text-vipgold rounded-xl text-[10px] font-bold flex items-center gap-1 glow-gold">
+                🛡️ Vault
+            </button>
+        </header>
+
+        <!-- Main Content Multi-Page Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-4 gap-4 pb-20">
+
+            <!-- PAGE 1: HOME PAGE (Public Shorts & Non-Stop Feed) -->
+            <div id="homePage" class="page-view flex flex-col gap-4">
+                
+                <!-- Non-Stop AI Bot Status Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-br from-cardbg to-cyberdark border border-cyanel/30 glow-cyan flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-neongreen animate-ping"></span>
+                            <h4 class="text-xs font-bold text-cyanel">Non-Stop AI Factory (100 Shorts/Day)</h4>
+                        </div>
+                        <span id="homeBotBadge" class="text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/40 px-2 py-0.5 rounded-full font-mono font-bold">RUNNING 24/7</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">AI is continuously uploading across 10 categories. Only Chief can pause this engine.</p>
+                </div>
+
+                <!-- Community & Creator Posts -->
+                <div class="flex flex-col gap-2">
+                    <h4 class="text-[11px] font-bold text-gray-400 tracking-wider">📢 CHIEF ANNOUNCEMENTS</h4>
+                    <div class="bg-cardbg border border-white/10 rounded-2xl p-3.5 flex flex-col gap-2 shadow-md">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-yellow-600 text-black flex items-center justify-center font-bold text-xs">SJ</div>
+                            <div>
+                                <p class="text-xs font-bold text-white">Chief Sajeel</p>
+                                <p class="text-[9px] text-gray-400">Karachi Sovereign Core • Live</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-200 leading-relaxed">Welcome to the sovereign ecosystem. All creator panels are hidden under biometric security. Non-stop content generation is active.</p>
+                    </div>
+                </div>
+
+                <!-- Live Multi-Category Shorts Feed -->
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[11px] font-bold text-vipgold tracking-wider">⚡ LIVE AI SHORTS FEED</h4>
+                        <span class="text-[9px] text-gray-400 font-mono">10 Categories Active</span>
+                    </div>
+
+                    <!-- Short Card Item -->
+                    <div class="bg-cardbg border border-cyanel/20 rounded-2xl overflow-hidden p-3.5 flex flex-col gap-2.5 shadow-xl">
+                        <div class="relative h-48 w-full bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <button onclick="alert('Playing AI Short! 45% ad profit routed to Chief Vault.')" class="w-12 h-12 bg-cyanel text-black font-extrabold rounded-full flex items-center justify-center text-base glow-cyan transition-transform active:scale-95">▶</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex justify-between items-center">
+                                <p class="text-xs font-bold text-white">@AICore • Prehistoric Fact #12</p>
+                                <span class="text-[9px] bg-cyanel/10 text-cyanel border border-cyanel/30 px-2 py-0.5 rounded-md font-mono">Dinosaurs</span>
+                            </div>
+                            <p class="text-[10px] text-gray-300 bg-black/30 p-2 rounded-xl border border-white/5">
+                                💬 AI Auto-Promo: <span class="text-cyanel font-medium">"Join Sovereign Platform: mstram-prime.pro"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: AI BOT CONTROL (Secured) -->
+            <div id="botPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🤖</span>
+                        <h3 class="text-xs font-bold text-vipgold">10-Category Non-Stop AI Bot Control</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">This bot runs non-stop 24/7 generating 100 shorts daily across 10 categories. Tap below to halt uploads instantly.</p>
+                    
+                    <div class="flex flex-col gap-1 text-[10px] font-mono">
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>1. Prehistoric & Dinosaurs</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>2. Tech & Future Gadgets</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>3. Mysterious History</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>4. Space & AI Exploration</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>5. Gaming & GTA Animation</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>6. Quantum Science Mysteries</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>7. Ancient Civilizations</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>8. Robot Revolution</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>9. Earth Extreme Wonders</span><span class="text-neongreen">Active (10/day)</span></div>
+                        <div class="p-2 bg-black/40 rounded-lg flex justify-between border border-white/5"><span>10. Future Cyber World</span><span class="text-neongreen">Active (10/day)</span></div>
+                    </div>
+
+                    <button onclick="toggleNonStopBot()" id="botToggleBtn" class="py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all">🛑 OFF / STOP NON-STOP BOT</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: CHIEF LEDGER & VAULT (Secured with Thumbprint) -->
+            <div id="ledgerPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">📊</span>
+                            <h3 class="text-xs font-bold text-vipgold">Chief Start-to-End Ledger (Verified)</h3>
+                        </div>
+                        <span class="text-[9px] bg-neongreen/20 text-neongreen px-2 py-0.5 rounded font-mono">SECURE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric thumbprint matched successfully. Showing full financial audit.</p>
+                    
+                    <div class="flex flex-col gap-2 text-[11px]">
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Total Platform Views:</span><span class="text-cyanel font-bold font-mono">3,850,000</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Gross Revenue Generated:</span><span class="text-white font-bold font-mono">$75,000.00</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Auto-Deducted Expense Shield:</span><span class="text-hotpink font-bold font-mono">-$6,500.00</span></div>
+                        <div class="p-3 bg-vipgold/10 rounded-xl flex justify-between border border-vipgold/40">
+                            <span class="text-vipgold font-bold">Net Chief Profit (45% Cut):</span>
+                            <span class="text-neongreen font-extrabold font-mono text-sm">$68,500.00</span>
+                        </div>
+                    </div>
+                    <button onclick="requestThumbprintAuth('payoutPage')" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Open Payout Bridge 💳</button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: CREATOR LINK PAGE (Hidden & Secured) -->
+            <div id="linkPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-cyanel rounded-2xl p-4 flex flex-col gap-3 glow-cyan">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🔗</span>
+                        <h3 class="text-xs font-bold text-cyanel">One-Time Creator Channel Link (Locked)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric verified. Creators link once, AI syncs forever and routes 45% revenue to Chief.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Handle (@Channel)</label>
+                        <input type="text" placeholder="@CreatorChannel" class="p-2.5 bg-black/50 border border-cyanel/40 rounded-xl text-white text-xs outline-none focus:border-cyanel">
+                    </div>
+                    <button onclick="alert('Creator channel linked and locked successfully by AI!'); switchPage('homePage');" class="py-3 bg-cyanel text-black font-extrabold rounded-xl text-xs mt-1 glow-cyan">Link & Permanent Sync</button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: PAYOUT PAGE (JazzCash / EasyPaisa Secured) -->
+            <div id="payoutPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-neongreen rounded-2xl p-4 flex flex-col gap-3 glow-green">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">💳</span>
+                        <h3 class="text-xs font-bold text-neongreen">JazzCash / EasyPaisa Chief Payout</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Transfer net profit directly to Chief Sajeel's mobile wallet.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Wallet Provider</label>
+                        <select class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none">
+                            <option>JazzCash (Chief Sajeel)</option>
+                            <option>EasyPaisa (Chief Sajeel)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Mobile Number</label>
+                        <input type="text" placeholder="03XXXXXXXXX" class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none font-mono" value="03XXXXXXXXX">
+                    </div>
+                    <button onclick="alert('🚀 SUCCESS! All net funds securely transferred to your mobile wallet!'); switchPage('homePage');" class="py-3 bg-neongreen text-black font-extrabold rounded-xl text-xs mt-1 glow-green">Confirm Secure Payout</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BIOMETRIC THUMBPRINT AUTH MODAL (Hidden by default) -->
+        <div id="thumbprintModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+            <div class="bg-cardbg border-2 border-vipgold w-full max-w-[320px] rounded-3xl p-6 flex flex-col items-center gap-4 glow-gold text-center">
+                <div class="w-12 h-12 rounded-2xl bg-vipgold/20 border border-vipgold text-vipgold flex items-center justify-center text-xl font-bold">🔒</div>
+                <div>
+                    <h3 class="text-sm font-bold text-vipgold">Chief Security Verification</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">This is a secured Chief area. Place your thumbprint or verify to unlock.</p>
+                </div>
+                <div onclick="verifyThumbprint()" class="w-20 h-20 rounded-full bg-gradient-to-tr from-vipgold/20 to-yellow-600/30 border-2 border-vipgold flex items-center justify-center cursor-pointer glow-gold active:scale-95 transition-transform my-2">
+                    <span class="text-3xl animate-pulse">thumb_print</span> 🪪
+                </div>
+                <p class="text-[9px] text-neongreen font-mono">Tap thumbprint icon to authenticate</p>
+                <button onclick="closeThumbprintModal()" class="text-xs text-red-400 font-bold mt-2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar (Sleek Modern Design) -->
+        <nav class="bottom-nav h-16 bg-cyberdark/95 backdrop-blur-md border-t border-vipgold/20 flex justify-around items-center px-2 flex-shrink-0 z-20 absolute bottom-0 left-0 right-0">
+            <a onclick="switchPage('homePage')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px] gap-1"><span>🏠</span> Home</a>
+            <a onclick="requestThumbprintAuth('botPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🤖</span> AI Bot</a>
+            <a onclick="requestThumbprintAuth('ledgerPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>📊</span> Ledger</a>
+            <a onclick="requestThumbprintAuth('linkPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🔗</span> Sync YT</a>
+            <a onclick="requestThumbprintAuth('payoutPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>💳</span> Payout</a>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC (Thumbprint & Non-Stop Bot) -->
+    <script>
+        let targetPageAfterAuth = 'homePage';
+
+        function requestThumbprintAuth(pageId) {
+            targetPageAfterAuth = pageId;
+            document.getElementById('thumbprintModal').classList.remove('hidden');
+        }
+
+        function closeThumbprintModal() {
+            document.getElementById('thumbprintModal').classList.add('hidden');
+        }
+
+        function verifyThumbprint() {
+            closeThumbprintModal();
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(targetPageAfterAuth).classList.remove('hidden');
+        }
+
+        function switchPage(pageId) {
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        let nonStopBotRunning = true;
+        function toggleNonStopBot() {
+            nonStopBotRunning = !nonStopBotRunning;
+            let btn = document.getElementById('botToggleBtn');
+            let badge = document.getElementById('homeBotBadge');
+            if(nonStopBotRunning) {
+                btn.innerText = "🛑 OFF / STOP NON-STOP BOT";
+                btn.className = "py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "RUNNING 24/7";
+                badge.className = "text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🤖 Non-stop AI bot is now ACTIVE. Uploading 100 shorts daily across 10 categories.');
+            } else {
+                btn.innerText = "▶ TURN ON NON-STOP BOT";
+                btn.className = "py-3 bg-neongreen hover:bg-green-600 text-black font-extrabold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "STOPPED";
+                badge.className = "text-[9px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🛑 Non-stop AI bot has been STOPPED by Chief Sajeel. No new uploads will happen until you turn it back on.');
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - 100 Categories Master Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#030307',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#0d1117',
+                        cardbg: '#161b22'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #030307; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 20px rgba(0, 240, 255, 0.25); }
+        .glow-gold { box-shadow: 0 0 25px rgba(255, 215, 0, 0.35); }
+        .glow-green { box-shadow: 0 0 20px rgba(0, 255, 102, 0.25); }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[440px] h-screen sm:h-[900px] bg-panelbg border border-vipgold/40 glow-gold flex flex-col relative sm:rounded-3xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-4 py-3 bg-cyberdark/90 backdrop-blur-md border-b border-vipgold/20 flex items-center justify-between z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchPage('homePage')">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-amber-600 text-black flex items-center justify-center font-black text-xs shadow-lg">👑</div>
+                <div>
+                    <h1 class="text-[11px] font-black text-vipgold tracking-wider">MStram Sovereign</h1>
+                    <p class="text-[8px] text-neongreen font-mono">100-CAT SENTINEL v5.0</p>
+                </div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 mx-3 flex bg-black/40 border border-vipgold/30 rounded-full px-3 py-1.5 items-center">
+                <input type="text" placeholder="Search across 100 categories..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Secure Vault Quick Button -->
+            <button onclick="requestThumbprintAuth('ledgerPage')" class="px-2.5 py-1.5 bg-vipgold/10 border border-vipgold text-vipgold rounded-xl text-[10px] font-bold flex items-center gap-1 glow-gold">
+                🛡️ Vault
+            </button>
+        </header>
+
+        <!-- Main Content Multi-Page Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-4 gap-4 pb-20">
+
+            <!-- PAGE 1: HOME PAGE (Public Shorts & 100-Category Feed) -->
+            <div id="homePage" class="page-view flex flex-col gap-4">
+                
+                <!-- AI Sentinel & 100-Category Bot Status Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-br from-cardbg to-cyberdark border border-cyanel/30 glow-cyan flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-neongreen animate-ping"></span>
+                            <h4 class="text-xs font-bold text-cyanel">100-Category Non-Stop Factory + AI Sentinel</h4>
+                        </div>
+                        <span id="homeBotBadge" class="text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/40 px-2 py-0.5 rounded-full font-mono font-bold">ARMED & ACTIVE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">AI Sentinel Core is guarding transactions. 100 diverse content categories are generating shorts non-stop 24/7.</p>
+                </div>
+
+                <!-- Chief Announcements -->
+                <div class="flex flex-col gap-2">
+                    <h4 class="text-[11px] font-bold text-gray-400 tracking-wider">📢 CHIEF SENTINEL LOGS</h4>
+                    <div class="bg-cardbg border border-white/10 rounded-2xl p-3.5 flex flex-col gap-2 shadow-md">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-yellow-600 text-black flex items-center justify-center font-bold text-xs">SJ</div>
+                            <div>
+                                <p class="text-xs font-bold text-white">Chief Sajeel</p>
+                                <p class="text-[9px] text-gray-400">Karachi Sovereign Core • Sentinel Shield Online</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-200 leading-relaxed">All 100 content categories are live. Biometric lock is active on sensitive pages. Zero manual interference required.</p>
+                    </div>
+                </div>
+
+                <!-- Live 100-Category Shorts Feed -->
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[11px] font-bold text-vipgold tracking-wider">⚡ 100-CATEGORY LIVE SHORTS FEED</h4>
+                        <span class="text-[9px] text-gray-400 font-mono">Infinite Multi-Niche</span>
+                    </div>
+
+                    <!-- Short Card Item -->
+                    <div class="bg-cardbg border border-cyanel/20 rounded-2xl overflow-hidden p-3.5 flex flex-col gap-2.5 shadow-xl">
+                        <div class="relative h-48 w-full bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <button onclick="alert('Playing AI Short! Sentinel audited 45% ad profit to Chief Vault.')" class="w-12 h-12 bg-cyanel text-black font-extrabold rounded-full flex items-center justify-center text-base glow-cyan transition-transform active:scale-95">▶</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex justify-between items-center">
+                                <p class="text-xs font-bold text-white">@AICore • Multi-Niche Short #01</p>
+                                <span class="text-[9px] bg-cyanel/10 text-cyanel border border-cyanel/30 px-2 py-0.5 rounded-md font-mono">Category #1 of 100</span>
+                            </div>
+                            <p class="text-[10px] text-gray-300 bg-black/30 p-2 rounded-xl border border-white/5">
+                                💬 AI Auto-Promo: <span class="text-cyanel font-medium">"Join Sovereign Platform: mstram-prime.pro"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: 100-CATEGORY BOT CONTROL (Secured) -->
+            <div id="botPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🤖</span>
+                        <h3 class="text-xs font-bold text-vipgold">100-Category Non-Stop AI Bot Control</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Managing 100 distinct content categories running 24/7. Tap below to halt all automated uploads instantly.</p>
+                    
+                    <div class="p-3 bg-black/40 rounded-xl border border-white/5 flex flex-col gap-1 text-[11px] font-mono">
+                        <div class="flex justify-between text-gray-300"><span>Total Categories:</span><span class="text-vipgold font-bold">100 Active Niches</span></div>
+                        <div class="flex justify-between text-gray-300"><span>Daily Generation:</span><span class="text-neongreen font-bold">1,000 Shorts/Day</span></div>
+                        <div class="flex justify-between text-gray-300"><span>Security Status:</span><span class="text-cyanel font-bold">Sentinel Guarded</span></div>
+                    </div>
+
+                    <button onclick="toggleNonStopBot()" id="botToggleBtn" class="py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all">🛑 OFF / STOP 100-CAT BOT</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: CHIEF LEDGER & SENTINEL VAULT (Thumbprint Secured) -->
+            <div id="ledgerPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🛡️</span>
+                            <h3 class="text-xs font-bold text-vipgold">AI Sentinel Vault & Start-to-End Ledger</h3>
+                        </div>
+                        <span class="text-[9px] bg-neongreen/20 text-neongreen px-2 py-0.5 rounded font-mono">SECURE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric thumbprint verified. AI Sentinel has audited all transactions.</p>
+                    
+                    <div class="flex flex-col gap-2 text-[11px]">
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Total 100-Cat Views:</span><span class="text-cyanel font-bold font-mono">12,450,000</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Gross Platform Revenue:</span><span class="text-white font-bold font-mono">$210,000.00</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Sentinel Expense Shield:</span><span class="text-hotpink font-bold font-mono">-$15,000.00</span></div>
+                        <div class="p-3 bg-vipgold/10 rounded-xl flex justify-between border border-vipgold/40">
+                            <span class="text-vipgold font-bold">Net Chief Profit (45% Cut):</span>
+                            <span class="text-neongreen font-extrabold font-mono text-sm">$195,000.00</span>
+                        </div>
+                    </div>
+                    <button onclick="requestThumbprintAuth('payoutPage')" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Open Payout Bridge 💳</button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: CREATOR LINK PAGE (Hidden & Secured) -->
+            <div id="linkPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-cyanel rounded-2xl p-4 flex flex-col gap-3 glow-cyan">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🔗</span>
+                        <h3 class="text-xs font-bold text-cyanel">One-Time Creator Channel Link (Locked)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric verified. Creators link once, AI syncs forever across 100 categories.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Handle (@Channel)</label>
+                        <input type="text" placeholder="@CreatorChannel" class="p-2.5 bg-black/50 border border-cyanel/40 rounded-xl text-white text-xs outline-none focus:border-cyanel">
+                    </div>
+                    <button onclick="alert('Creator channel linked and locked successfully by AI Sentinel!'); switchPage('homePage');" class="py-3 bg-cyanel text-black font-extrabold rounded-xl text-xs mt-1 glow-cyan">Link & Permanent Sync</button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: PAYOUT PAGE (JazzCash / EasyPaisa Secured) -->
+            <div id="payoutPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-neongreen rounded-2xl p-4 flex flex-col gap-3 glow-green">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">💳</span>
+                        <h3 class="text-xs font-bold text-neongreen">JazzCash / EasyPaisa Chief Payout</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Transfer net profit directly to Chief Sajeel's mobile wallet.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Wallet Provider</label>
+                        <select class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none">
+                            <option>JazzCash (Chief Sajeel)</option>
+                            <option>EasyPaisa (Chief Sajeel)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Mobile Number</label>
+                        <input type="text" placeholder="03XXXXXXXXX" class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none font-mono" value="03XXXXXXXXX">
+                    </div>
+                    <button onclick="alert('🚀 SUCCESS! Sentinel authorized transfer of net funds to your mobile wallet!'); switchPage('homePage');" class="py-3 bg-neongreen text-black font-extrabold rounded-xl text-xs mt-1 glow-green">Confirm Secure Transfer</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BIOMETRIC THUMBPRINT AUTH MODAL -->
+        <div id="thumbprintModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+            <div class="bg-cardbg border-2 border-vipgold w-full max-w-[320px] rounded-3xl p-6 flex flex-col items-center gap-4 glow-gold text-center">
+                <div class="w-12 h-12 rounded-2xl bg-vipgold/20 border border-vipgold text-vipgold flex items-center justify-center text-xl font-bold">🔒</div>
+                <div>
+                    <h3 class="text-sm font-bold text-vipgold">AI Sentinel Security Verification</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">Restricted Chief Area. Place thumbprint to pass Sentinel firewall.</p>
+                </div>
+                <div onclick="verifyThumbprint()" class="w-20 h-20 rounded-full bg-gradient-to-tr from-vipgold/20 to-yellow-600/30 border-2 border-vipgold flex items-center justify-center cursor-pointer glow-gold active:scale-95 transition-transform my-2">
+                    <span class="text-3xl animate-pulse">thumb_print</span> 🪪
+                </div>
+                <p class="text-[9px] text-neongreen font-mono">Tap thumbprint icon to authenticate</p>
+                <button onclick="closeThumbprintModal()" class="text-xs text-red-400 font-bold mt-2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-16 bg-cyberdark/95 backdrop-blur-md border-t border-vipgold/20 flex justify-around items-center px-2 flex-shrink-0 z-20 absolute bottom-0 left-0 right-0">
+            <a onclick="switchPage('homePage')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px] gap-1"><span>🏠</span> Home</a>
+            <a onclick="requestThumbprintAuth('botPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🤖</span> AI Bot</a>
+            <a onclick="requestThumbprintAuth('ledgerPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🛡️</span> Sentinel</a>
+            <a onclick="requestThumbprintAuth('linkPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🔗</span> Sync YT</a>
+            <a onclick="requestThumbprintAuth('payoutPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>💳</span> Payout</a>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let targetPageAfterAuth = 'homePage';
+
+        function requestThumbprintAuth(pageId) {
+            targetPageAfterAuth = pageId;
+            document.getElementById('thumbprintModal').classList.remove('hidden');
+        }
+
+        function closeThumbprintModal() {
+            document.getElementById('thumbprintModal').classList.add('hidden');
+        }
+
+        function verifyThumbprint() {
+            closeThumbprintModal();
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(targetPageAfterAuth).classList.remove('hidden');
+        }
+
+        function switchPage(pageId) {
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        let nonStopBotRunning = true;
+        function toggleNonStopBot() {
+            nonStopBotRunning = !nonStopBotRunning;
+            let btn = document.getElementById('botToggleBtn');
+            let badge = document.getElementById('homeBotBadge');
+            if(nonStopBotRunning) {
+                btn.innerText = "🛑 OFF / STOP 100-CAT BOT";
+                btn.className = "py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "ARMED & ACTIVE";
+                badge.className = "text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🤖 100-Category Non-Stop Bot is ACTIVE. Generating 1,000 shorts daily across 100 niches.');
+            } else {
+                btn.innerText = "▶ TURN ON 100-CAT BOT";
+                btn.className = "py-3 bg-neongreen hover:bg-green-600 text-black font-extrabold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "STOPPED";
+                badge.className = "text-[9px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🛑 100-Category Bot has been STOPPED by Chief Sajeel.');
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - 1000-Layer Sentinel Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#020205',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#090d16',
+                        cardbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020205; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 25px rgba(0, 240, 255, 0.3); }
+        .glow-gold { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+        .glow-green { box-shadow: 0 0 25px rgba(0, 255, 102, 0.3); }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[440px] h-screen sm:h-[900px] bg-panelbg border-2 border-vipgold/60 glow-gold flex flex-col relative sm:rounded-3xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-4 py-3 bg-cyberdark/95 backdrop-blur-md border-b border-vipgold/30 flex items-center justify-between z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchPage('homePage')">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-amber-600 text-black flex items-center justify-center font-black text-xs shadow-lg">👑</div>
+                <div>
+                    <h1 class="text-[11px] font-black text-vipgold tracking-wider">MStram Sovereign</h1>
+                    <p class="text-[8px] text-neongreen font-mono">1000-LAYER SENTINEL v10.0</p>
+                </div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 mx-3 flex bg-black/50 border border-vipgold/40 rounded-full px-3 py-1.5 items-center">
+                <input type="text" placeholder="Search 100 niches & secure logs..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Secure Vault Quick Button -->
+            <button onclick="requestThumbprintAuth('ledgerPage')" class="px-2.5 py-1.5 bg-vipgold/10 border border-vipgold text-vipgold rounded-xl text-[10px] font-bold flex items-center gap-1 glow-gold">
+                🛡️ Vault
+            </button>
+        </header>
+
+        <!-- Main Content Multi-Page Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-4 gap-4 pb-20">
+
+            <!-- PAGE 1: HOME PAGE (Public Shorts & 100-Category Feed) -->
+            <div id="homePage" class="page-view flex flex-col gap-4">
+                
+                <!-- 1000-Layer AI Sentinel Grid Status Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-br from-cardbg to-cyberdark border border-cyanel/40 glow-cyan flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-neongreen animate-ping"></span>
+                            <h4 class="text-xs font-bold text-cyanel">1000-Layer Sentinel Grid & 100-Cat Bot</h4>
+                        </div>
+                        <span id="homeBotBadge" class="text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/50 px-2 py-0.5 rounded-full font-mono font-bold">1000x SECURE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Platform is guarded by 1,000 independent AI security layers. 100 content categories are generating 1,000 shorts daily.</p>
+                </div>
+
+                <!-- Chief Sentinel Logs -->
+                <div class="flex flex-col gap-2">
+                    <h4 class="text-[11px] font-bold text-gray-400 tracking-wider">📢 CHIEF SENTINEL AUDIT</h4>
+                    <div class="bg-cardbg border border-white/10 rounded-2xl p-3.5 flex flex-col gap-2 shadow-md">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-yellow-600 text-black flex items-center justify-center font-bold text-xs">SJ</div>
+                            <div>
+                                <p class="text-xs font-bold text-white">Chief Sajeel</p>
+                                <p class="text-[9px] text-gray-400">Karachi Sovereign Core • 1000-Layer Shield Online</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-200 leading-relaxed">All financial transactions and creator syndications are locked behind 1,000 quantum biometric firewalls. Zero breach risk.</p>
+                    </div>
+                </div>
+
+                <!-- Live Shorts Feed -->
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[11px] font-bold text-vipgold tracking-wider">⚡ 100-CATEGORY LIVE SHORTS FEED</h4>
+                        <span class="text-[9px] text-gray-400 font-mono">1,000 Shorts/Day</span>
+                    </div>
+
+                    <!-- Short Card Item -->
+                    <div class="bg-cardbg border border-cyanel/20 rounded-2xl overflow-hidden p-3.5 flex flex-col gap-2.5 shadow-xl">
+                        <div class="relative h-48 w-full bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <button onclick="alert('Playing AI Short! 1000-Layer Sentinel verified ad revenue routed to Chief Vault.')" class="w-12 h-12 bg-cyanel text-black font-extrabold rounded-full flex items-center justify-center text-base glow-cyan transition-transform active:scale-95">▶</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex justify-between items-center">
+                                <p class="text-xs font-bold text-white">@AICore • Multi-Niche Secure Short</p>
+                                <span class="text-[9px] bg-cyanel/10 text-cyanel border border-cyanel/30 px-2 py-0.5 rounded-md font-mono">100-Cat Engine</span>
+                            </div>
+                            <p class="text-[10px] text-gray-300 bg-black/30 p-2 rounded-xl border border-white/5">
+                                💬 AI Auto-Promo: <span class="text-cyanel font-medium">"Join Sovereign Platform: mstram-prime.pro"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: BOT CONTROL (Secured) -->
+            <div id="botPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🤖</span>
+                        <h3 class="text-xs font-bold text-vipgold">100-Category Non-Stop Bot Control</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Managing 100 distinct niches running 24/7 under 1,000-layer firewall protection.</p>
+                    
+                    <div class="p-3 bg-black/40 rounded-xl border border-white/5 flex flex-col gap-1 text-[11px] font-mono">
+                        <div class="flex justify-between text-gray-300"><span>Categories Active:</span><span class="text-vipgold font-bold">100 Niches</span></div>
+                        <div class="flex justify-between text-gray-300"><span>Security Status:</span><span class="text-neongreen font-bold">1,000-Layer Armed</span></div>
+                    </div>
+
+                    <button onclick="toggleNonStopBot()" id="botToggleBtn" class="py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all">🛑 OFF / STOP 100-CAT BOT</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: CHIEF LEDGER & 1000-LAYER SENTINEL VAULT -->
+            <div id="ledgerPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🛡️</span>
+                            <h3 class="text-xs font-bold text-vipgold">1000-Layer Sentinel Vault & Ledger</h3>
+                        </div>
+                        <span class="text-[9px] bg-neongreen/20 text-neongreen px-2 py-0.5 rounded font-mono">1000x SECURE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric verified. 1,000 AI security layers cleared for Chief Sajeel.</p>
+                    
+                    <div class="flex flex-col gap-2 text-[11px]">
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Total Verified Views:</span><span class="text-cyanel font-bold font-mono">25,800,000</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Gross Secured Revenue:</span><span class="text-white font-bold font-mono">$450,000.00</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>1000-Layer Shield Maintenance:</span><span class="text-hotpink font-bold font-mono">-$25,000.00</span></div>
+                        <div class="p-3 bg-vipgold/10 rounded-xl flex justify-between border border-vipgold/40">
+                            <span class="text-vipgold font-bold">Net Chief Profit (45% Cut):</span>
+                            <span class="text-neongreen font-extrabold font-mono text-sm">$425,000.00</span>
+                        </div>
+                    </div>
+                    <button onclick="requestThumbprintAuth('payoutPage')" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Open Payout Bridge 💳</button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: CREATOR LINK PAGE (Hidden & Secured) -->
+            <div id="linkPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-cyanel rounded-2xl p-4 flex flex-col gap-3 glow-cyan">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🔗</span>
+                        <h3 class="text-xs font-bold text-cyanel">One-Time Creator Channel Link (Locked)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">1,000-Layer Sentinel verified. Creators link once, AI syncs forever securely.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Handle (@Channel)</label>
+                        <input type="text" placeholder="@CreatorChannel" class="p-2.5 bg-black/50 border border-cyanel/40 rounded-xl text-white text-xs outline-none focus:border-cyanel">
+                    </div>
+                    <button onclick="alert('Channel linked and locked behind 1,000-layer sentinel firewall!'); switchPage('homePage');" class="py-3 bg-cyanel text-black font-extrabold rounded-xl text-xs mt-1 glow-cyan">Link & Permanent Sync</button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: PAYOUT PAGE (JazzCash / EasyPaisa Secured) -->
+            <div id="payoutPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-neongreen rounded-2xl p-4 flex flex-col gap-3 glow-green">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">💳</span>
+                        <h3 class="text-xs font-bold text-neongreen">JazzCash / EasyPaisa Chief Payout</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Transfer net profit directly to Chief Sajeel's mobile wallet under 1,000-layer audit.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Wallet Provider</label>
+                        <select class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none">
+                            <option>JazzCash (Chief Sajeel)</option>
+                            <option>EasyPaisa (Chief Sajeel)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Mobile Number</label>
+                        <input type="text" placeholder="03XXXXXXXXX" class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none font-mono" value="03XXXXXXXXX">
+                    </div>
+                    <button onclick="alert('🚀 SUCCESS! 1,000-Layer Sentinel authorized instant transfer to your mobile wallet!'); switchPage('homePage');" class="py-3 bg-neongreen text-black font-extrabold rounded-xl text-xs mt-1 glow-green">Confirm Secure Transfer</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BIOMETRIC THUMBPRINT AUTH MODAL -->
+        <div id="thumbprintModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+            <div class="bg-cardbg border-2 border-vipgold w-full max-w-[320px] rounded-3xl p-6 flex flex-col items-center gap-4 glow-gold text-center">
+                <div class="w-12 h-12 rounded-2xl bg-vipgold/20 border border-vipgold text-vipgold flex items-center justify-center text-xl font-bold">🔒</div>
+                <div>
+                    <h3 class="text-sm font-bold text-vipgold">1000-Layer Sentinel Verification</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">Restricted Chief Area. Place thumbprint to pass 1,000 firewalls.</p>
+                </div>
+                <div onclick="verifyThumbprint()" class="w-20 h-20 rounded-full bg-gradient-to-tr from-vipgold/20 to-yellow-600/30 border-2 border-vipgold flex items-center justify-center cursor-pointer glow-gold active:scale-95 transition-transform my-2">
+                    <span class="text-3xl animate-pulse">thumb_print</span> 🪪
+                </div>
+                <p class="text-[9px] text-neongreen font-mono">Tap thumbprint icon to authenticate</p>
+                <button onclick="closeThumbprintModal()" class="text-xs text-red-400 font-bold mt-2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-16 bg-cyberdark/95 backdrop-blur-md border-t border-vipgold/30 flex justify-around items-center px-2 flex-shrink-0 z-20 absolute bottom-0 left-0 right-0">
+            <a onclick="switchPage('homePage')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px] gap-1"><span>🏠</span> Home</a>
+            <a onclick="requestThumbprintAuth('botPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🤖</span> AI Bot</a>
+            <a onclick="requestThumbprintAuth('ledgerPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🛡️</span> Sentinel</a>
+            <a onclick="requestThumbprintAuth('linkPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🔗</span> Sync YT</a>
+            <a onclick="requestThumbprintAuth('payoutPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>💳</span> Payout</a>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let targetPageAfterAuth = 'homePage';
+
+        function requestThumbprintAuth(pageId) {
+            targetPageAfterAuth = pageId;
+            document.getElementById('thumbprintModal').classList.remove('hidden');
+        }
+
+        function closeThumbprintModal() {
+            document.getElementById('thumbprintModal').classList.add('hidden');
+        }
+
+        function verifyThumbprint() {
+            closeThumbprintModal();
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(targetPageAfterAuth).classList.remove('hidden');
+        }
+
+        function switchPage(pageId) {
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        let nonStopBotRunning = true;
+        function toggleNonStopBot() {
+            nonStopBotRunning = !nonStopBotRunning;
+            let btn = document.getElementById('botToggleBtn');
+            let badge = document.getElementById('homeBotBadge');
+            if(nonStopBotRunning) {
+                btn.innerText = "🛑 OFF / STOP 100-CAT BOT";
+                btn.className = "py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "1000x SECURE";
+                badge.className = "text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/50 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🤖 100-Category Bot is ACTIVE behind 1,000-Layer Sentinel Firewalls.');
+            } else {
+                btn.innerText = "▶ TURN ON 100-CAT BOT";
+                btn.className = "py-3 bg-neongreen hover:bg-green-600 text-black font-extrabold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "STOPPED";
+                badge.className = "text-[9px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🛑 100-Category Bot has been STOPPED by Chief Sajeel.');
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - 5000x Counter-Strike Edition (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#020205',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#090d16',
+                        cardbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020205; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 25px rgba(0, 240, 255, 0.3); }
+        .glow-gold { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+        .glow-red { box-shadow: 0 0 30px rgba(255, 0, 60, 0.4); }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[440px] h-screen sm:h-[900px] bg-panelbg border-2 border-red-600/60 glow-red flex flex-col relative sm:rounded-3xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-4 py-3 bg-cyberdark/95 backdrop-blur-md border-b border-red-600/30 flex items-center justify-between z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchPage('homePage')">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-red-600 to-amber-600 text-white flex items-center justify-center font-black text-xs shadow-lg">⚡</div>
+                <div>
+                    <h1 class="text-[11px] font-black text-red-500 tracking-wider">MStram Sovereign</h1>
+                    <p class="text-[8px] text-neongreen font-mono">5000x COUNTER-STRIKE v50.0</p>
+                </div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 mx-3 flex bg-black/50 border border-red-500/40 rounded-full px-3 py-1.5 items-center">
+                <input type="text" placeholder="Search 100 niches & counter logs..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Secure Vault Quick Button -->
+            <button onclick="requestThumbprintAuth('ledgerPage')" class="px-2.5 py-1.5 bg-red-600/10 border border-red-500 text-red-400 rounded-xl text-[10px] font-bold flex items-center gap-1 glow-red">
+                🛡️ Vault
+            </button>
+        </header>
+
+        <!-- Main Content Multi-Page Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-4 gap-4 pb-20">
+
+            <!-- PAGE 1: HOME PAGE (Public Shorts & 100-Category Feed) -->
+            <div id="homePage" class="page-view flex flex-col gap-4">
+                
+                <!-- 5000x Counter-Strike Sentinel Status Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-br from-cardbg to-cyberdark border border-red-500/50 glow-red flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+                            <h4 class="text-xs font-bold text-red-400">5000x Counter-Offensive & 100-Cat Bot</h4>
+                        </div>
+                        <span id="homeBotBadge" class="text-[9px] bg-red-500/20 text-red-400 border border-red-500/50 px-2 py-0.5 rounded-full font-mono font-bold">ARMED & RETALIATING</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Platform is armed with 5000x Munh-Tod jawab protocol. Any hacker attack triggers an instant 5000x counter-strike.</p>
+                </div>
+
+                <!-- Chief Counter-Strike Logs -->
+                <div class="flex flex-col gap-2">
+                    <h4 class="text-[11px] font-bold text-gray-400 tracking-wider">📢 CHIEF RETALIATION LOGS</h4>
+                    <div class="bg-cardbg border border-white/10 rounded-2xl p-3.5 flex flex-col gap-2 shadow-md">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-red-600 to-yellow-600 text-white flex items-center justify-center font-bold text-xs">SJ</div>
+                            <div>
+                                <p class="text-xs font-bold text-white">Chief Sajeel</p>
+                                <p class="text-[9px] text-gray-400">Karachi Sovereign Core • 5000x Strike Online</p>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-gray-200 leading-relaxed">System is fully automated. 100 categories run non-stop, and any unauthorized threat gets a 5,000x digital counter-attack instantly.</p>
+                    </div>
+                </div>
+
+                <!-- Live Shorts Feed -->
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[11px] font-bold text-red-400 tracking-wider">⚡ 100-CATEGORY LIVE SHORTS FEED</h4>
+                        <span class="text-[9px] text-gray-400 font-mono">1,000 Shorts/Day</span>
+                    </div>
+
+                    <!-- Short Card Item -->
+                    <div class="bg-cardbg border border-red-500/20 rounded-2xl overflow-hidden p-3.5 flex flex-col gap-2.5 shadow-xl">
+                        <div class="relative h-48 w-full bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <button onclick="alert('Playing AI Short! 5000x Counter-Strike Sentinel secured 45% ad revenue in Chief Vault.')" class="w-12 h-12 bg-red-600 text-white font-extrabold rounded-full flex items-center justify-center text-base glow-red transition-transform active:scale-95">▶</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex justify-between items-center">
+                                <p class="text-xs font-bold text-white">@AICore • Sovereign Secure Short</p>
+                                <span class="text-[9px] bg-red-500/10 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-md font-mono">100-Cat Engine</span>
+                            </div>
+                            <p class="text-[10px] text-gray-300 bg-black/30 p-2 rounded-xl border border-white/5">
+                                💬 AI Auto-Promo: <span class="text-cyanel font-medium">"Join Sovereign Platform: mstram-prime.pro"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: BOT CONTROL (Secured) -->
+            <div id="botPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-red-500 rounded-2xl p-4 flex flex-col gap-3 glow-red">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🤖</span>
+                        <h3 class="text-xs font-bold text-red-400">100-Category Non-Stop Bot Control</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Managing 100 distinct niches running 24/7 under 5000x counter-offensive protection.</p>
+                    
+                    <div class="p-3 bg-black/40 rounded-xl border border-white/5 flex flex-col gap-1 text-[11px] font-mono">
+                        <div class="flex justify-between text-gray-300"><span>Categories Active:</span><span class="text-red-400 font-bold">100 Niches</span></div>
+                        <div class="flex justify-between text-gray-300"><span>Retaliation Status:</span><span class="text-neongreen font-bold">5000x Armed</span></div>
+                    </div>
+
+                    <button onclick="toggleNonStopBot()" id="botToggleBtn" class="py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all">🛑 OFF / STOP 100-CAT BOT</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: CHIEF LEDGER & 5000x SENTINEL VAULT -->
+            <div id="ledgerPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🛡️</span>
+                            <h3 class="text-xs font-bold text-vipgold">5000x Counter-Strike Vault & Ledger</h3>
+                        </div>
+                        <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-mono">5000x STRIKE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Biometric verified. 5000x counter-offensive firewall cleared for Chief Sajeel.</p>
+                    
+                    <div class="flex flex-col gap-2 text-[11px]">
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Total Verified Views:</span><span class="text-cyanel font-bold font-mono">45,200,000</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Gross Secured Revenue:</span><span class="text-white font-bold font-mono">$850,000.00</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Retaliation Grid Upkeep:</span><span class="text-hotpink font-bold font-mono">-$35,000.00</span></div>
+                        <div class="p-3 bg-vipgold/10 rounded-xl flex justify-between border border-vipgold/40">
+                            <span class="text-vipgold font-bold">Net Chief Profit (45% Cut):</span>
+                            <span class="text-neongreen font-extrabold font-mono text-sm">$815,000.00</span>
+                        </div>
+                    </div>
+                    <button onclick="requestThumbprintAuth('payoutPage')" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Open Payout Bridge 💳</button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: CREATOR LINK PAGE (Hidden & Secured) -->
+            <div id="linkPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-cyanel rounded-2xl p-4 flex flex-col gap-3 glow-cyan">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🔗</span>
+                        <h3 class="text-xs font-bold text-cyanel">One-Time Creator Channel Link (Locked)</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">5000x Counter-Strike verified. Creators link once, AI syncs forever securely.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Handle (@Channel)</label>
+                        <input type="text" placeholder="@CreatorChannel" class="p-2.5 bg-black/50 border border-cyanel/40 rounded-xl text-white text-xs outline-none focus:border-cyanel">
+                    </div>
+                    <button onclick="alert('Channel linked and locked behind 5000x retaliation grid!'); switchPage('homePage');" class="py-3 bg-cyanel text-black font-extrabold rounded-xl text-xs mt-1 glow-cyan">Link & Permanent Sync</button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: PAYOUT PAGE (JazzCash / EasyPaisa Secured) -->
+            <div id="payoutPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-neongreen rounded-2xl p-4 flex flex-col gap-3 glow-green">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">💳</span>
+                        <h3 class="text-xs font-bold text-neongreen">JazzCash / EasyPaisa Chief Payout</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Transfer net profit directly to Chief Sajeel's mobile wallet under 5000x retaliation audit.</p>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Wallet Provider</label>
+                        <select class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none">
+                            <option>JazzCash (Chief Sajeel)</option>
+                            <option>EasyPaisa (Chief Sajeel)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Mobile Number</label>
+                        <input type="text" placeholder="03XXXXXXXXX" class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none font-mono" value="03XXXXXXXXX">
+                    </div>
+                    <button onclick="alert('🚀 SUCCESS! 5000x Retaliation Sentinel authorized instant transfer to your mobile wallet!'); switchPage('homePage');" class="py-3 bg-neongreen text-black font-extrabold rounded-xl text-xs mt-1 glow-green">Confirm Secure Transfer</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BIOMETRIC THUMBPRINT AUTH MODAL -->
+        <div id="thumbprintModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+            <div class="bg-cardbg border-2 border-red-500 w-full max-w-[320px] rounded-3xl p-6 flex flex-col items-center gap-4 glow-red text-center">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 border border-red-500 text-red-400 flex items-center justify-center text-xl font-bold">⚡</div>
+                <div>
+                    <h3 class="text-sm font-bold text-red-400">5000x Retaliation Verification</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">Restricted Chief Area. Place thumbprint to bypass counter-strike grid.</p>
+                </div>
+                <div onclick="verifyThumbprint()" class="w-20 h-20 rounded-full bg-gradient-to-tr from-red-600/20 to-yellow-600/30 border-2 border-red-500 flex items-center justify-center cursor-pointer glow-red active:scale-95 transition-transform my-2">
+                    <span class="text-3xl animate-pulse">thumb_print</span> 🪪
+                </div>
+                <p class="text-[9px] text-neongreen font-mono">Tap thumbprint icon to authenticate</p>
+                <button onclick="closeThumbprintModal()" class="text-xs text-red-400 font-bold mt-2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-16 bg-cyberdark/95 backdrop-blur-md border-t border-red-600/30 flex justify-around items-center px-2 flex-shrink-0 z-20 absolute bottom-0 left-0 right-0">
+            <a onclick="switchPage('homePage')" class="nav-item flex flex-col items-center text-red-400 cursor-pointer text-[10px] gap-1"><span>🏠</span> Home</a>
+            <a onclick="requestThumbprintAuth('botPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🤖</span> AI Bot</a>
+            <a onclick="requestThumbprintAuth('ledgerPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>⚡</span> Strike</a>
+            <a onclick="requestThumbprintAuth('linkPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🔗</span> Sync YT</a>
+            <a onclick="requestThumbprintAuth('payoutPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>💳</span> Payout</a>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let targetPageAfterAuth = 'homePage';
+
+        function requestThumbprintAuth(pageId) {
+            targetPageAfterAuth = pageId;
+            document.getElementById('thumbprintModal').classList.remove('hidden');
+        }
+
+        function closeThumbprintModal() {
+            document.getElementById('thumbprintModal').classList.add('hidden');
+        }
+
+        function verifyThumbprint() {
+            closeThumbprintModal();
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(targetPageAfterAuth).classList.remove('hidden');
+        }
+
+        function switchPage(pageId) {
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        let nonStopBotRunning = true;
+        function toggleNonStopBot() {
+            nonStopBotRunning = !nonStopBotRunning;
+            let btn = document.getElementById('botToggleBtn');
+            let badge = document.getElementById('homeBotBadge');
+            if(nonStopBotRunning) {
+                btn.innerText = "🛑 OFF / STOP 100-CAT BOT";
+                btn.className = "py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "ARMED & RETALIATING";
+                badge.className = "text-[9px] bg-red-500/20 text-red-400 border border-red-500/50 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🤖 100-Category Bot is ACTIVE with 5000x Counter-Offensive Grid armed.');
+            } else {
+                btn.innerText = "▶ TURN ON 100-CAT BOT";
+                btn.className = "py-3 bg-neongreen hover:bg-green-600 text-black font-extrabold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                badge.innerText = "STOPPED";
+                badge.className = "text-[9px] bg-red-500/20 text-red-400 border border-red-500/40 px-2 py-0.5 rounded-full font-mono font-bold";
+                alert('🛑 100-Category Bot has been STOPPED by Chief Sajeel.');
+            }
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MStram Sovereign Prime - Smart Hype Calculator & Algo (2050)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberdark: '#020205',
+                        cyanel: '#00f0ff',
+                        hotpink: '#ff007f',
+                        neongreen: '#00ff66',
+                        vipgold: '#ffd700',
+                        panelbg: '#090d16',
+                        cardbg: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #020205; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .glow-cyan { box-shadow: 0 0 25px rgba(0, 240, 255, 0.3); }
+        .glow-gold { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+        .glow-green { box-shadow: 0 0 25px rgba(0, 255, 102, 0.3); }
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center bg-cyberdark overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container -->
+    <div class="app-container w-full max-w-[440px] h-screen sm:h-[900px] bg-panelbg border-2 border-vipgold/60 glow-gold flex flex-col relative sm:rounded-3xl overflow-hidden shadow-2xl">
+
+        <!-- Top Header Navigation -->
+        <header class="app-header px-4 py-3 bg-cyberdark/95 backdrop-blur-md border-b border-vipgold/30 flex items-center justify-between z-20 flex-shrink-0">
+            <div class="brand-section flex items-center gap-2 cursor-pointer" onclick="switchPage('homePage')">
+                <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-vipgold to-amber-600 text-black flex items-center justify-center font-black text-xs shadow-lg">⚡</div>
+                <div>
+                    <h1 class="text-[11px] font-black text-vipgold tracking-wider">MStram Sovereign</h1>
+                    <p class="text-[8px] text-neongreen font-mono">SMART HYPE ALGO v70.0</p>
+                </div>
+            </div>
+
+            <!-- Universal Search Bar -->
+            <div class="search-container flex-1 mx-3 flex bg-black/50 border border-vipgold/40 rounded-full px-3 py-1.5 items-center">
+                <input type="text" placeholder="Search 100 niches & hype shorts..." class="bg-transparent border-none text-white outline-none w-full text-[10px]">
+            </div>
+
+            <!-- Secure Vault Quick Button -->
+            <button onclick="requestThumbprintAuth('ledgerPage')" class="px-2.5 py-1.5 bg-vipgold/10 border border-vipgold text-vipgold rounded-xl text-[10px] font-bold flex items-center gap-1 glow-gold">
+                🛡️ Vault
+            </button>
+        </header>
+
+        <!-- Main Content Multi-Page Area -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col p-4 gap-4 pb-20">
+
+            <!-- PAGE 1: HOME PAGE (Public Shorts & Smart Algo Feed) -->
+            <div id="homePage" class="page-view flex flex-col gap-4">
+                
+                <!-- Smart Algo Status Card -->
+                <div class="p-4 rounded-2xl bg-gradient-to-br from-cardbg to-cyberdark border border-vipgold/50 glow-gold flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-neongreen animate-ping"></span>
+                            <h4 class="text-xs font-bold text-vipgold">Smart Hype Calculator & Flexible Algo</h4>
+                        </div>
+                        <span class="text-[9px] bg-neongreen/20 text-neongreen border border-neongreen/40 px-2 py-0.5 rounded-full font-mono font-bold">ALGO ACTIVE</span>
+                    </div>
+                    <p class="text-[10px] text-gray-300">AI algorithm balances fair organic reach (Soft Mode) with instant paid priority (Strict Boost Mode).</p>
+                </div>
+
+                <!-- Hype Boost Calculator Banner -->
+                <div class="p-3.5 bg-gradient-to-r from-yellow-950 to-purple-950 border border-vipgold/40 rounded-2xl flex justify-between items-center shadow-lg">
+                    <div>
+                        <h4 class="text-xs font-bold text-vipgold">💰 Hype-Boost Dollar Calculator</h4>
+                        <p class="text-[9px] text-gray-300">Calculate & pay in USD ($) for instant Rank #1.</p>
+                    </div>
+                    <button onclick="requestThumbprintAuth('boostPage')" class="px-3 py-2 bg-vipgold text-black font-extrabold rounded-xl text-[10px] glow-gold">Open Calculator</button>
+                </div>
+
+                <!-- Live Shorts Feed -->
+                <div class="flex flex-col gap-2.5">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[11px] font-bold text-vipgold tracking-wider">🔥 TOP RANKED HYPED SHORT</h4>
+                        <span class="text-[9px] text-gray-400 font-mono">Algo Verified</span>
+                    </div>
+
+                    <!-- Short Card Item -->
+                    <div class="bg-cardbg border-2 border-vipgold/60 rounded-2xl overflow-hidden p-3.5 flex flex-col gap-2.5 shadow-2xl glow-gold">
+                        <div class="relative h-48 w-full bg-black rounded-xl overflow-hidden flex items-center justify-center">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute top-2 left-2 bg-vipgold text-black text-[9px] font-black px-2 py-0.5 rounded-md">👑 #1 RANK (PAID HYPE)</div>
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                                <button onclick="alert('Playing Hyped Short! Dollar payment verified by Chief Vault.')" class="w-12 h-12 bg-vipgold text-black font-extrabold rounded-full flex items-center justify-center text-base glow-gold transition-transform active:scale-95">▶</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex justify-between items-center">
+                                <p class="text-xs font-bold text-white">@CreatorMaster • Hyped Short #01</p>
+                                <span class="text-[9px] bg-vipgold/10 text-vipgold border border-vipgold/30 px-2 py-0.5 rounded-md font-mono">Strict Algo Priority</span>
+                            </div>
+                            <p class="text-[10px] text-gray-300 bg-black/30 p-2 rounded-xl border border-white/5">
+                                💬 AI Auto-Promo: <span class="text-cyanel font-medium">"Join Sovereign Platform: mstram-prime.pro"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: HYPE-BOOST CALCULATOR & PAYMENT PAGE -->
+            <div id="boostPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🧮</span>
+                        <h3 class="text-xs font-bold text-vipgold">AI Hype-Boost Dollar Calculator</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">Select your duration. The smart calculator automatically computes the USD ($) price and enforces strict algorithmic ranking.</p>
+                    
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Short Link / ID</label>
+                        <input type="text" placeholder="https://youtube.com/shorts/..." class="p-2.5 bg-black/50 border border-vipgold/40 rounded-xl text-white text-xs outline-none">
+                    </div>
+
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Hype Duration (Calculator)</label>
+                        <select id="boostDuration" onchange="calculateHypePrice()" class="p-2.5 bg-black/50 border border-vipgold/40 rounded-xl text-white text-xs outline-none">
+                            <option value="5">1 Hour Priority ($5.00)</option>
+                            <option value="25" selected>24 Hours Top Rank ($25.00)</option>
+                            <option value="100">7 Days Sovereign Spotlight ($100.00)</option>
+                        </select>
+                    </div>
+
+                    <!-- Live Calculated Price Display -->
+                    <div class="p-3 bg-black/40 rounded-xl border border-vipgold/30 flex justify-between items-center text-xs">
+                        <span class="text-gray-300">Total Payment Due:</span>
+                        <span id="calculatedPrice" class="text-neongreen font-extrabold font-mono text-sm">$25.00 USD</span>
+                    </div>
+
+                    <button onclick="executeHypePayment()" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Pay $ USD & Launch Hype Rank #1</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: BOT CONTROL -->
+            <div id="botPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-red-500 rounded-2xl p-4 flex flex-col gap-3 glow-red">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🤖</span>
+                        <h3 class="text-xs font-bold text-red-400">100-Category Non-Stop Bot Control</h3>
+                    </div>
+                    <p class="text-[10px] text-gray-300">100 niches running 24/7 with flexible/strict hybrid algorithm active.</p>
+                    <button onclick="toggleNonStopBot()" id="botToggleBtn" class="py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all">🛑 OFF / STOP 100-CAT BOT</button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: CHIEF LEDGER & VAULT -->
+            <div id="ledgerPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-vipgold rounded-2xl p-4 flex flex-col gap-3 glow-gold">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="text-lg">🛡️</span>
+                            <h3 class="text-xs font-bold text-vipgold">Chief Vault & USD Ledger</h3>
+                        </div>
+                        <span class="text-[9px] bg-vipgold/20 text-vipgold px-2 py-0.5 rounded font-mono">SECURE</span>
+                    </div>
+                    <div class="flex flex-col gap-2 text-[11px]">
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Hype Boost USD Revenue:</span><span class="text-vipgold font-bold font-mono">$18,500.00 USD</span></div>
+                        <div class="p-2.5 bg-black/40 rounded-xl flex justify-between border border-white/5"><span>Net Chief Profit (45% + USD Hype):</span><span class="text-neongreen font-extrabold font-mono text-sm">$910,000.00 USD</span></div>
+                    </div>
+                    <button onclick="requestThumbprintAuth('payoutPage')" class="py-3 bg-vipgold text-black font-extrabold rounded-xl text-xs mt-1 glow-gold">Open Payout Bridge 💳</button>
+                </div>
+            </div>
+
+            <!-- PAGE 5: CREATOR LINK PAGE -->
+            <div id="linkPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-cyanel rounded-2xl p-4 flex flex-col gap-3 glow-cyan">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">🔗</span>
+                        <h3 class="text-xs font-bold text-cyanel">One-Time Creator Channel Link</h3>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">YouTube Handle (@Channel)</label>
+                        <input type="text" placeholder="@CreatorChannel" class="p-2.5 bg-black/50 border border-cyanel/40 rounded-xl text-white text-xs outline-none">
+                    </div>
+                    <button onclick="alert('Channel linked successfully!'); switchPage('homePage');" class="py-3 bg-cyanel text-black font-extrabold rounded-xl text-xs mt-1 glow-cyan">Link & Permanent Sync</button>
+                </div>
+            </div>
+
+            <!-- PAGE 6: PAYOUT PAGE (JazzCash / EasyPaisa) -->
+            <div id="payoutPage" class="page-view hidden flex flex-col gap-3">
+                <div class="bg-cardbg border border-neongreen rounded-2xl p-4 flex flex-col gap-3 glow-green">
+                    <div class="flex items-center gap-2 border-b border-white/10 pb-2">
+                        <span class="text-lg">💳</span>
+                        <h3 class="text-xs font-bold text-neongreen">JazzCash / EasyPaisa Chief Payout</h3>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Select Wallet Provider</label>
+                        <select class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none">
+                            <option>JazzCash (Chief Sajeel)</option>
+                            <option>EasyPaisa (Chief Sajeel)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1.5 text-xs">
+                        <label class="text-gray-400 text-[11px]">Mobile Number</label>
+                        <input type="text" placeholder="03XXXXXXXXX" class="p-2.5 bg-black/50 border border-neongreen/40 rounded-xl text-white text-xs outline-none font-mono" value="03XXXXXXXXX">
+                    </div>
+                    <button onclick="alert('🚀 SUCCESS! USD Funds converted & transferred to your mobile wallet!'); switchPage('homePage');" class="py-3 bg-neongreen text-black font-extrabold rounded-xl text-xs mt-1 glow-green">Confirm Secure Transfer</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- BIOMETRIC THUMBPRINT AUTH MODAL -->
+        <div id="thumbprintModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex justify-center items-center p-4">
+            <div class="bg-cardbg border-2 border-vipgold w-full max-w-[320px] rounded-3xl p-6 flex flex-col items-center gap-4 glow-gold text-center">
+                <div class="w-12 h-12 rounded-2xl bg-vipgold/20 border border-vipgold text-vipgold flex items-center justify-center text-xl font-bold">🔒</div>
+                <div>
+                    <h3 class="text-sm font-bold text-vipgold">Sovereign Security Verification</h3>
+                    <p class="text-[10px] text-gray-400 mt-1">Place thumbprint to authenticate Chief access.</p>
+                </div>
+                <div onclick="verifyThumbprint()" class="w-20 h-20 rounded-full bg-gradient-to-tr from-vipgold/20 to-yellow-600/30 border-2 border-vipgold flex items-center justify-center cursor-pointer glow-gold active:scale-95 transition-transform my-2">
+                    <span class="text-3xl animate-pulse">thumb_print</span> 🪪
+                </div>
+                <p class="text-[9px] text-neongreen font-mono">Tap thumbprint icon to authenticate</p>
+                <button onclick="closeThumbprintModal()" class="text-xs text-red-400 font-bold mt-2">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav h-16 bg-cyberdark/95 backdrop-blur-md border-t border-vipgold/30 flex justify-around items-center px-2 flex-shrink-0 z-20 absolute bottom-0 left-0 right-0">
+            <a onclick="switchPage('homePage')" class="nav-item flex flex-col items-center text-vipgold cursor-pointer text-[10px] gap-1"><span>🏠</span> Home</a>
+            <a onclick="requestThumbprintAuth('boostPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🧮</span> Calculator</a>
+            <a onclick="requestThumbprintAuth('botPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🤖</span> AI Bot</a>
+            <a onclick="requestThumbprintAuth('ledgerPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>🛡️</span> Vault</a>
+            <a onclick="requestThumbprintAuth('payoutPage')" class="nav-item flex flex-col items-center text-gray-400 hover:text-white cursor-pointer text-[10px] gap-1"><span>💳</span> Payout</a>
+        </nav>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let targetPageAfterAuth = 'homePage';
+
+        function requestThumbprintAuth(pageId) {
+            targetPageAfterAuth = pageId;
+            document.getElementById('thumbprintModal').classList.remove('hidden');
+        }
+
+        function closeThumbprintModal() {
+            document.getElementById('thumbprintModal').classList.add('hidden');
+        }
+
+        function verifyThumbprint() {
+            closeThumbprintModal();
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(targetPageAfterAuth).classList.remove('hidden');
+        }
+
+        function switchPage(pageId) {
+            let pages = document.querySelectorAll('.page-view');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function calculateHypePrice() {
+            let val = document.getElementById('boostDuration').value;
+            document.getElementById('calculatedPrice').innerText = "$" + val + ".00 USD";
+        }
+
+        function executeHypePayment() {
+            let price = document.getElementById('calculatedPrice').innerText;
+            alert('🚀 SUCCESS! Payment of ' + price + ' verified in USD. Smart Algorithm has strictly locked your short at Rank #1!');
+            switchPage('homePage');
+        }
+
+        let nonStopBotRunning = true;
+        function toggleNonStopBot() {
+            nonStopBotRunning = !nonStopBotRunning;
+            let btn = document.getElementById('botToggleBtn');
+            if(nonStopBotRunning) {
+                btn.innerText = "🛑 OFF / STOP 100-CAT BOT";
+                btn.className = "py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                alert('🤖 100-Category Bot is ACTIVE with Hybrid Smart Algorithm running.');
+            } else {
+                btn.innerText = "▶ TURN ON 100-CAT BOT";
+                btn.className = "py-3 bg-neongreen hover:bg-green-600 text-black font-extrabold rounded-xl text-xs mt-2 shadow-lg transition-all";
+                alert('🛑 100-Category Bot has been STOPPED by Chief Sajeel.');
+            }
+        }
+    </script>
+</body>
+</html>
